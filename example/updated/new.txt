@@ -1,0 +1,4 @@
+Hellow world 
+THis is an OpenLog file test
+running ine
+  fine
