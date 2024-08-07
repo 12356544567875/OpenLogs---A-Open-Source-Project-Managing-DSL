@@ -18,3 +18,46 @@ For example : I want to remove the content of a.txt or completly wipe out the da
 ```OpenLogs
 remove:a.txt
 ```
+
+### updated: (Macro)
+<code>updated:</code> is an inbuild macro of OpenLogs which is used to add the updated file to the updated directory of OpenLogs which can be furture used for many purposes including backups
+
+For example : I want to store the a.txt file as updated file which further i can restore as backup so i can write
+```OpenLogs
+updated:a.txt,a.txt
+```
+
+Here i used a comma with another a.txt because <code>update:</code> macro takes two values 1 for the file path which must be stored and 2nd is the stored file path which will be stored as main file and even if the names are different you do not need to worry because OpenLogs manages everything for you
+
+Another example : I want to store a.txt as updated with the name of b.txt i can do this by
+```OpenLogs
+updated:a.txt,b.txt
+```
+
+## Odems
+Odems are the keywords which are used to perform certain actions based on there work! Odems do not takes any value but they performs certain actions
+
+### UPDATE_FILES; (Odem)
+<code>UPDATE_FILES</code> is used for updating all the files which are stored as updated files and even if there names are different still we can use <code>UPDATE_FILES;</code> Odem will still update the files bacause OpenLogs keeps the track of orignal files.
+
+Example : I lost my a.txt but i knew that it was stored as b.txt in previous example as updated so i can backup it by
+```OpenLogs
+UPDATE_FILES;
+```
+
+# Note :
+Use remove:updated/UPDATE_LOGS at the begning of the OpenLogs file as it is a good practise which cleans the UPDATE_LOGS file before appending new things to it. But only do this if you are going to repeteadly use single OpenLogs file because it wipes the UPDATE_LOGS file which contains the track of all the updated files with there uodated and orignal names and these can be used for backups.
+
+# A Demo Project
+```OpenLogs
+remove:updated/UPDATE_LOGS
+updated:a.txt,updated-a.txt
+updated:b.txt,b
+UPDATE_FILES;
+```
+
+This example demonstrates a safe atmosphere for a and b text documents which are always updated and stored twice
+
+Hope you enjoyed this.
+
+OpenLogs v1.0
